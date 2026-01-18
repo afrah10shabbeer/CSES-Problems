@@ -6,6 +6,8 @@ using namespace std;
 //
 // Space: O(memo space + recursion stack depth)
 //      = O(n * x + (n + x)) ≈ O(n * x)
+//
+// NOTE: Although correct, this recursive DP solution may cause TLE on CSES
 
 const int MOD = 1e9 + 7;
 int getDistinctOrders(int index, int n, int x, vector<int> &c, vector<vector<int>> &memo)
