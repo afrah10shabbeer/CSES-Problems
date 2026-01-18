@@ -1,14 +1,13 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-const int MOD = 1e9 + 7;
-
 // Time: O(#states * cost per state * memo lookup time)
 //     = O((n * x) * 1 * 1) = O(n * x)
 //
 // Space: O(memo space + recursion stack depth)
 //      = O(n * x + (n + x)) ≈ O(n * x)
 
+const int MOD = 1e9 + 7;
 int getDistinctOrders(int index, int n, int x, vector<int> &c, vector<vector<int>> &memo)
 {
     if (x == 0) return 1;
