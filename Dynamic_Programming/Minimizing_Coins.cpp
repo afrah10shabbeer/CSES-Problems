@@ -1,8 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// Time: O(#states * cost per state * memo lookup time) = O(x * n * 1) = O(n * x)
-// Space: O(space for memo + recursion depth (worst case when coin 1 exists)) = O(x + x) = O(x)
+// Time: O(#states * cost per state * memo lookup time) 
+// 		= O(x * n * 1) = O(n * x)
+// Space: O(space for memo + recursion depth (worst case when coin 1 exists)) 
+// 		= O(x + x) = O(x)
 
 const int INF = 1e9;
 int getMinimalCoins(int n, int x, vector<int> &coins, vector<int> &memoVector)
