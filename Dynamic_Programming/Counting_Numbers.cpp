@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
+typedef long long ll;
 
 // ------------------ Memoization Table ------------------
 // dp[index][prevDigit][isLeadingZeros][tightDigitLimit]
@@ -8,10 +9,10 @@ using namespace std;
 // isLeadingZeros: true if all digits so far are zeros
 // tightDigitLimit: true if current number prefix is equal to prefix of upper bound
 
-int dp[20][10][2][2]; 
+ll dp[20][10][2][2]; 
 
 // Returns the number of integers <= num with no adjacent equal digits
-int generateNums(string num, int index, int prevDigit, bool isLeadingZeros, bool tightDigitLimit)
+ll generateNums(string num, int index, int prevDigit, bool isLeadingZeros, bool tightDigitLimit)
 {
     // Base case: processed all digits
     if (index == num.size())
@@ -24,7 +25,7 @@ int generateNums(string num, int index, int prevDigit, bool isLeadingZeros, bool
     // Maximum digit allowed at this position
     int upperBound = tightDigitLimit ? (num[index] - '0') : 9;
 
-    int ans = 0;
+    ll ans = 0;
     
     // Try all digits for current position
     for (int digit = 0; digit <= upperBound; digit++)
@@ -63,14 +64,14 @@ int main() {
 
     // Count numbers <= b
     memset(dp, -1, sizeof(dp));
-    int count_b = generateNums(b, 0, -1, true, true);
+    ll count_b = generateNums(b, 0, -1, true, true);
 
     // Count numbers <= a
     memset(dp, -1, sizeof(dp));
-    int count_a = generateNums(a, 0, -1, true, true);
+    ll count_a = generateNums(a, 0, -1, true, true);
 
     // Numbers in [a, b] = count_b - count_a
-    int ans = count_b - count_a;
+    ll ans = count_b - count_a;
     if (isValid(a)) // include 'a' if valid
         ans += 1;
 
